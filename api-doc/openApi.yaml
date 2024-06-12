@@ -1,0 +1,163 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Shoe Store"
+host: "localhost:1337"
+schemes:
+- "http"
+paths:
+  /categories:
+    get:
+      tags:
+      - "Category"
+      summary: "Получить список категорий"
+      description: "Возвращает список всех категорий"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Category"
+        400:
+          description: "Invalid status value"
+        403:
+          description: "Forbidden"
+        404:
+          description: "File not found"
+          
+  /products:
+    get:
+      tags:
+        - "Products"
+      summary: "Получить список продуктов"
+      description: "Возвращает список всех продуктов"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Product"
+        400:
+          description: "Invalid status value"
+        403:
+          description: "Forbidden"
+        404:
+          description: "File not found"
+      
+    
+  /products/category/{categoryId}:
+    get:
+      tags:
+      - "Products"
+      summary: "Получить список продуктов по ID категории"
+      description: "Возвращает список продуктов одной категории"
+      parameters:
+      - name: "categoryId"
+        in: "path"
+        description: "ID категории"
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Product"
+        400:
+          description: "Invalid status value"
+        403:
+          description: "Forbidden"
+        404:
+          description: "File not found"
+  /contacts:
+    get:
+      tags:
+      - "Contacts"
+      summary: "Получить данные по контактам"
+      responses:
+          200:
+            description: "Successful operation"
+            schema:
+              $ref: "#/definitions/Contacts"
+          400:
+            description: "Invalid status value"
+          403:
+            description: "Forbidden"
+          404:
+            description: "File not found"
+definitions:
+  Category:
+    type: "object"
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+  Gender:
+    type: "object"
+    properties:
+      id:
+        type: integer
+      uid:
+        type: string
+        example: "male"
+  Producer:
+    type: "object"
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+        example: "Adidas"
+  Image:
+    type: "object"
+    properties:
+      id:
+        type: integer
+      url:
+        type: string
+        example: "/uploads/6a5ecc93e6fc8172a8585e65cfcff220_9ab56bf52c.jpg"
+        description: "Ссылка наизображение"
+      name:
+        type: string
+        example: "6a5ecc93e6fc8172a8585e65cfcff220.jpg"
+      mime:
+        type: string
+        example: "image/jpeg"
+      ext:
+        type: string
+        example: ".jpg"
+  Product:
+    type: "object"
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+        example: "Подкрадули"
+      description:
+        type: string
+        example: "Это лучшие ботинки на свете"
+      price: 
+        type: integer
+        example: 100000
+      main_image: 
+        $ref: "#/definitions/Image"
+      gender: 
+        $ref: "#/definitions/Gender"
+      category:
+        $ref: "#/definitions/Category"
+      producer:
+        $ref: "#/definitions/Producer"
+  Contacts:
+    type: "object"
+    properties: 
+      phone: 
+        type: string
+        example: "8-900-600-50-50"
+      email: 
+        type: string
+        example: "info@example.com"
