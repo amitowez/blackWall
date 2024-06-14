@@ -1,0 +1,118 @@
+@import './vars.scss';
+@import './fonts.scss';
+
+.ui-button{
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    max-width: 222px;
+    height: 48px;
+    padding: 1vw 1vw;
+    cursor: pointer;
+    margin-top: 16px;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.36px;
+    border-radius: $border-radius-mini;
+    background-color: $default-accent-color;
+    color: rgba(255, 255, 255, 1);
+    &:hover{
+        background-color: $hover-accent-color;
+    }
+    &:active{
+        background-color: $active-accent-color;
+    }
+}
+
+.ui-input{
+    outline-style: inset;
+    outline: none;
+    border: none;
+    max-width: 400px;
+    padding-left: 15px;
+    height: 50px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    border-radius:$border-radius;
+    background-color: $background-disabled;
+    margin-top: 10px;
+    &:hover{
+        outline: 1px solid $hover-accent-color;
+    }
+    &:active, 
+    &:focus{
+        outline: 1px solid $active-accent-color;
+        background-color: rgba(255, 255, 255, 1);
+    }
+}
+
+.ui-select{
+    &-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        outline: none;
+        max-width: 199px;
+        height: 35px;
+        padding: 10px 13px 10px 10px;
+        border: 1px solid $border-color;
+        border-radius: $border-radius-mini;
+        z-index: 3;
+        position: relative;
+        &:hover{
+            border: 1px solid $default-accent-color;
+        }
+        &__active{
+            border: 1px solid $border-color-active;
+        }
+    }
+    
+    &-text {
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16.94px;
+    }
+    
+    &-img {
+        height: 10px;
+        width: 10px;
+    }
+
+    &-list {
+        z-index: 3;
+        position: relative;
+        max-width: 199px;
+        box-shadow: $select-box-shadow;
+        border-radius: $border-radius;
+    }
+
+    &-option {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-family: Inter;
+        font-size: 14px;
+        padding-left: 13px;
+        font-weight: 400;
+        height: 33px;
+        line-height: 16.94px;
+        border-bottom:1px solid $border-color-option;
+        &:hover{
+            background-color: $hover-color-option;
+        }
+        &:first-child{
+            margin-top: 10px;
+            border-radius: $border-radius-mini $border-radius-mini 0 0 ;
+        }
+        &:last-child{
+            border-radius: 0 0  $border-radius-mini $border-radius-mini;
+            border-bottom: none;
+        }
+    }
+}
+

@@ -1,0 +1,39 @@
+@import '@/assets/style/vars.scss';
+@import '@/assets/style/fonts.scss';
+@import '@/assets/style/ui.scss';
+@import '@/assets/style/footer.scss';
+@import '@/assets/style/header.scss';
+
+
+.app-content{
+    min-height: 400px;
+    padding: 50px $width-padding-container 50px $width-padding-container;
+}
+
+.centried{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    &-image{
+        height: 44px;
+        width: 44px;
+        margin-right: 14px;
+    }
+    &-description{
+        font-family: Poppins;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 27px;
+        &__footer{
+            color: $default-white;
+        }
+        &__header{
+            color: $default-black;
+        }
+    }
+}
