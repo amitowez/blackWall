@@ -1,7 +1,7 @@
 <template>
     <div >
         <AppHeader />
-        <Nuxt/>
+            <Nuxt/>
         <AppFooter />
     </div>
 </template>

@@ -9,15 +9,14 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "axios": "^1.7.2",
+    "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
     "sass": "^1.77.5",
     "sass-loader": "^10.1.1",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10",
-    "vuex": "^4.1.0"
+    "vue-template-compiler": "^2.7.10"
   },
   "devDependencies": {}
 }

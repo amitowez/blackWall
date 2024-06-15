@@ -2,13 +2,13 @@
 @import './fonts.scss';
 
 .header-container{
-    padding: 50px $width-padding-container 30px $width-padding-container;
+    padding: 30px $width-padding-container 30px $width-padding-container;
 }
 .header {
     display: flex;
     margin-bottom: 30px;
     justify-content: space-between;
-    border-bottom: 2px solid $border-section ;
+    border-bottom: 2px solid $border-section;
 }
 
 .header-cart-group{
@@ -23,7 +23,7 @@
     width: 90%;
 }
 .header-nav-item{
-    font-family: Poppins;
+    font-family: $poppins;
     font-size: 24px;
     font-weight: 500;
     line-height: 36px;

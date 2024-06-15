@@ -1,1 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=inter:wght@400;700&family=Poppins:wght@400;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&sans-serif'); 
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&sans-serif');
+
+@mixin google-font($family) {
+    @import url("http://fonts.googleapis.com/css?family=#{$family}:wght@400;700");
+}
+  
+@include google-font("Poppins");
+@include google-font("Inter");

@@ -9,9 +9,9 @@ const { sanitizeEntity } = require('strapi-utils');
 module.exports = {
   find: async (ctx) => {
     const populate = []
-
     const entities = await strapi.services['categories'].find(ctx.query, populate)
-
+    console.log(ctx)
+    console.log(entities.map(entity => (sanitizeEntity(entity, { model: strapi.models['categories'] }))))
     return entities.map(entity => (sanitizeEntity(entity, { model: strapi.models['categories'] })))
   }
 };

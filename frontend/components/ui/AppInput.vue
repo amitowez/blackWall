@@ -19,10 +19,10 @@ export default {
     },
     computed:{
         Value:{
-            get: function(){
+            get: ()=>{
                 return this.value
             },
-            set: function(val){
+            set: (val)=>{
                 console.log(val)
                 this.$emit('setValue',val)
             }
