@@ -3,9 +3,10 @@
         <h1 class="category-active"> {{activeCategory.name}} </h1>
         <h2 class="category-header">Категории</h2>
         <p 
-            class="category-item" 
+            class="category-item"
+            :class="category.id === activeCategory.id ? 'category-item__active' :''"
             v-for="category in categories" 
-            :key="category.id" 
+            :key="category.id"
             @click="$emit('changeCategory', category)">
             {{ category.name }}
         </p>
@@ -13,7 +14,7 @@
 </template>
 <script>
 export default {
-    props:{
+    props: {
         categories: {
             type: Array,
             default:[]
@@ -53,6 +54,9 @@ export default {
     &:hover{
         background-color: $hover-color-option;
     }
+}
+.category-item__active{
+    background-color: $hover-color-option;
 }
 
 </style>

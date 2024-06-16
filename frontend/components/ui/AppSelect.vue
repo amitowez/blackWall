@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="margin-right: 20px;">
         <UiClickOutside 
             v-if="openedList" 
             :color="false"
@@ -10,7 +10,7 @@
             class="ui-select-button"
             :class="openedList ? 'ui-select-button__active' : ''" 
             @click="changeOpened">
-                <p class="ui-select-text">{{ selectValue }}</p>
+                <p class="ui-select-text">{{ selectValue.label }}</p>
                 <img 
                     :src="require('@/public/img/arrowSelect.svg')" 
                     class="ui-select-img">
@@ -19,14 +19,14 @@
             <div 
                 class="ui-select-option" 
                 @click="changeValue(defaultValue)" >
-                {{ defaultValue }}
+                {{ defaultValue.label }}
             </div>
             <div 
                 v-for="option in options" 
-                :key="option"
+                :key="option.label"
                 @click="changeValue(option)" 
                 class="ui-select-option">
-                {{ option }}
+                {{ option.label }}
             </div>
         </div>
     </div>
@@ -38,14 +38,14 @@
 export default {
     data(){
         return {
-            defaultValue: 'По умолчанию',
+            defaultValue: {label:'По умолчанию',value:'default',},
             openedList: false,
             selectValue: '',
         }
     },
     props:{
         value:{
-            type: String,
+            type: Object,
         },
         options: {
             type: Array,
@@ -60,9 +60,10 @@ export default {
         changeOpened(){
             this.openedList = !this.openedList
         },
-        changeValue(val){
-            this.selectValue = val
-            this.$emit('changeValue', val)
+        changeValue(option){
+            this.selectValue = option
+            this.$emit('changeValue', option.value)
+            this.changeOpened()
         }
     }
 }

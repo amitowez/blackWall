@@ -9,7 +9,9 @@
     min-height: 400px;
     padding: 50px $width-padding-container 50px $width-padding-container;
 }
-
+.flex{
+    display: flex;
+}
 .centried{
     display: flex;
     align-items: center;

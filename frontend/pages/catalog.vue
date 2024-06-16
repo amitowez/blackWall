@@ -1,10 +1,22 @@
 <template>
-    <section class="app-content">
-      <CategoryBlock 
-        v-if="categories[0]"
-        :categories="categories" 
+    <section class="app-content flex">
+      <CatalogCategory 
+        v-if="stateCatgories[0]"
+        :categories="stateCatgories" 
         :activeCategory="activeCategory"
-        @changeCategory="(val)=> activeCategory = val" />
+        @changeCategory="(val)=> activeCategory = val" 
+      />
+        <div class="showcase-container">
+          <CatalogFiltersCard 
+            :key="activeCategory.id"
+            @renderProducts="(val)=>renderProducts = val" 
+            :products="stateProducts" 
+          />
+          <CatalogShowcase 
+            v-if="stateProducts[0]"
+            :products="stateProducts"
+          />
+        </div>
     </section>
 </template>
 
@@ -12,40 +24,41 @@
 import { mapState, mapActions } from 'vuex'
 export default {
   name: 'catalog',
+  data(){
+    return{
+      renderProducts: []
+    }
+  },
   created(){
     this.getCategories()
   },
   methods:{
     ...mapActions({
-      getCategories:'getCategories'
+      getCategories:'getCategories',
     }),
   },
   computed:{
     ...mapState({
       stateActiveCategory:'activeCategory',
-      stateCatgories:'categories'
+      stateCatgories:'categories',
+      stateProducts: 'products'
     }),
-    categories(){
-      console.log(this.stateCatgories)
-      return this.stateCatgories
-    },
     activeCategory:{
       set: function(val){
         this.$store.commit('setCategory',val)
       },
       get: function(){
-        console.log(this.stateActiveCategory)
         return this.stateActiveCategory
       }
     }
   },
-  watch:{
-    "this.stateActiveCategory"(val){
-      console.log(val)
-    }
-  }
-
 }
 </script>
+<style lang="scss">
+.showcase-container{
+  margin-top: 37px;
+  width: 87%;
+}
 
+</style>
   

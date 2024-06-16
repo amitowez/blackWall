@@ -5,7 +5,7 @@
     outline: none;
     border: none;
     box-sizing: border-box;
-    max-width: 222px;
+    width: 100%;
     height: 48px;
     padding: 1vw 1vw;
     cursor: pointer;
@@ -56,18 +56,20 @@
         justify-content: space-between;
         box-sizing: border-box;
         outline: none;
-        max-width: 199px;
+        white-space: nowrap;
+        min-width: 200px;
         height: 35px;
         padding: 10px 13px 10px 10px;
         border: 1px solid $border-color;
         border-radius: $border-radius-mini;
-        z-index: 3;
+        z-index: 1;
         position: relative;
         &:hover{
             border: 1px solid $default-accent-color;
         }
         &__active{
             border: 1px solid $border-color-active;
+            z-index: 3;
         }
     }
     
@@ -85,8 +87,9 @@
 
     &-list {
         z-index: 3;
+        width: 100%;
         position: relative;
-        max-width: 199px;
+
         box-shadow: $select-box-shadow;
         border-radius: $border-radius;
     }
@@ -97,9 +100,12 @@
         justify-content: flex-start;
         font-family: $inter;
         font-size: 14px;
-        padding-left: 13px;
+        white-space: nowrap;
+        width: 100%;
+        padding: 8px 13px;
         font-weight: 400;
         height: 33px;
+        box-sizing: border-box;
         line-height: 16.94px;
         border-bottom:1px solid $border-color-option;
         &:hover{
